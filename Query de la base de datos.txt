@@ -1,0 +1,24 @@
+-- Creación de la tabla Estudiantes
+CREATE TABLE Estudiantes (
+    IdEstudiante INT PRIMARY KEY IDENTITY,
+    NumDoc VARCHAR(20),
+    Nombre NVARCHAR(100)
+);
+
+-- Inserción de datos en la tabla Estudiantes
+INSERT INTO Estudiantes (NumDoc, Nombre) VALUES ('12345678', 'Juan Perez');
+INSERT INTO Estudiantes (NumDoc, Nombre) VALUES ('87654321', 'Maria Gomez');
+
+-- Creación de la tabla Asistencias
+CREATE TABLE Asistencias (
+    IdAsistencia INT PRIMARY KEY IDENTITY,
+    IdEstudiante INT FOREIGN KEY REFERENCES Estudiantes(IdEstudiante),
+    Fecha DATE,
+    HoraIngreso TIME,
+    HoraSalida TIME
+);
+
+-- Inserción de datos en la tabla Asistencias
+INSERT INTO Asistencias (IdEstudiante, Fecha, HoraIngreso, HoraSalida) VALUES (1, '2024-05-24', '08:00', '10:30');
+INSERT INTO Asistencias (IdEstudiante, Fecha, HoraIngreso, HoraSalida) VALUES (2, '2024-05-24', '09:00', '11:30');
+-- Agrega aquí más inserciones de datos si es necesario
